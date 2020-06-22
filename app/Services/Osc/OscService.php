@@ -19,6 +19,11 @@ class OscService
         return $this->repo->getAll();
     }
 
+    public function getDescricao($id)
+    {
+        return $this->repo->getDescricao($id);
+    }
+
     public function get($id)
     {
         return $this->repo->get($id);

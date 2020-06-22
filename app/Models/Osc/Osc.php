@@ -72,17 +72,17 @@ class Osc extends Model
      * @var array
      */
     protected $with = [
-        'contato',
-        'dados_gerais',
-        'areas_e_subareas_atuacao',
-        'titulos_e_certificados',
-        'trabalhadores',
-        'quadro_de_dirigentes',
-        'conselho_fiscal',
-        'conselhos_politicas_publicas',
-        'conferencias_politicas_publicas',
-        'outros_espacos_participacao_social',
-        'projetos',
+        //'contato',
+        //'dados_gerais',
+        //'areas_e_subareas_atuacao',
+        //'titulos_e_certificados',
+        //'trabalhadores',
+        //'quadro_de_dirigentes',
+        //'conselho_fiscal',
+        //'conselhos_politicas_publicas',
+        //'conferencias_politicas_publicas',
+        //'outros_espacos_participacao_social',
+        //'projetos',
         //'localizacao'
 
     ];
@@ -212,8 +212,6 @@ class Osc extends Model
     {
         return $this->hasOne('App\Models\Osc\Contato', 'id_osc', 'id_osc');
     }
-
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

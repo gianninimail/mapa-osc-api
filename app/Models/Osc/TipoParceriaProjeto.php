@@ -35,10 +35,14 @@ class TipoParceriaProjeto extends Model
      */
     protected $fillable = ['id_projeto', 'cd_tipo_parceria_projeto', 'id_fonte_recursos_projeto', 'ft_tipo_parceria_projeto'];
 
+    protected $with = [
+        'dc_tipo_parceria'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Projeto()
+    public function projeto()
     {
         return $this->belongsTo('App\Models\Osc\Projeto', 'id_projeto', 'id_projeto');
     }
@@ -46,15 +50,15 @@ class TipoParceriaProjeto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function syst.dcTipoParcerium()
+    public function dc_tipo_parceria()
     {
-        return $this->belongsTo('App\Models\Osc\Syst.dcTipoParcerium', 'cd_tipo_parceria_projeto', 'cd_tipo_parceria');
+        return $this->belongsTo('App\Models\Syst\DCTipoParceria', 'cd_tipo_parceria_projeto', 'cd_tipo_parceria');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function FonteRecursosProjeto()
+    public function fonte_recursos_projeto()
     {
         return $this->belongsTo('App\Models\Osc\FonteRecursosProjeto', 'id_fonte_recursos_projeto', 'id_fonte_recursos_projeto');
     }

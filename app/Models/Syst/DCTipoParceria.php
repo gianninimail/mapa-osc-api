@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $tx_nome_tipo_parceria
  * @property Osc.tbTipoParceriaProjeto[] $osc.tbTipoParceriaProjetos
  */
-class TipoParceria extends Model
+class DCTipoParceria extends Model
 {
     /**
      * The table associated with the model.
@@ -33,7 +33,7 @@ class TipoParceria extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function TipoParceriaProjetos()
+    public function tipo_parceria_projetos()
     {
         return $this->hasMany('App\Models\Osc\TipoParceriaProjeto', 'cd_tipo_parceria_projeto', 'cd_tipo_parceria');
     }

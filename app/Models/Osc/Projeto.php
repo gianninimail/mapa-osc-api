@@ -82,7 +82,9 @@ class Projeto extends Model
         'dc_status_projeto',
         'municipio',
         'uf',
-        'fontes_recursos_projeto'
+        'fontes_recursos_projeto',
+        'tipo_parcerias_projeto',
+        'financiadores_projeto'
     ];
 
    //-----------------------------------------METODOS---------------------------------------//
@@ -146,7 +148,7 @@ class Projeto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function TipoParceriaProjetos()
+    public function tipo_parcerias_projeto()
     {
         return $this->hasMany('App\Models\Osc\TipoParceriaProjeto', 'id_projeto', 'id_projeto');
     }
@@ -154,7 +156,7 @@ class Projeto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function LocalizacaoProjetos()
+    public function localizacao_projeto()
     {
         return $this->hasMany('App\Models\Osc\LocalizacaoProjeto', 'id_projeto', 'id_projeto');
     }
@@ -162,7 +164,7 @@ class Projeto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function FinanciadorProjetos()
+    public function financiadores_projeto()
     {
         return $this->hasMany('App\Models\Osc\FinanciadorProjeto', 'id_projeto', 'id_projeto');
     }

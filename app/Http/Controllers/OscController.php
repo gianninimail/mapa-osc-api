@@ -40,6 +40,16 @@ class OscController extends Controller
         }
     }
 
+    public function getDescricao($id)
+    {
+        try {
+            return response()->json($this->service->getDescricao($id), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function store(Request $request) {
         //return [];
         //return ['tx_email_usuario' => 'teste@gmail.com'];

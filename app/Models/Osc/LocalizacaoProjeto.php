@@ -40,7 +40,7 @@ class LocalizacaoProjeto extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Projeto()
+    public function projeto()
     {
         return $this->belongsTo('App\Models\Osc\Projeto', 'id_projeto', 'id_projeto');
     }
