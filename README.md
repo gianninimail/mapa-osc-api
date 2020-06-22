@@ -35,7 +35,7 @@ Ou pelo e-mail: [mapaosc@ipea.gov.br](mapaosc@ipea.gov.br)
 
 ## Autores
 
-* Thiago Giannini Ramos
+* Thiago Giannini
 * Relison Galvão
 * Eric Ferreira
 
