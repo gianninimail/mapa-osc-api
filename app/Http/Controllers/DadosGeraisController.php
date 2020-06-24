@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Osc\DadosGerais;
 use App\Services\Osc\DadosGeraisService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,12 +42,17 @@ class DadosGeraisController extends Controller
     }
 
     public function store(Request $request) {
-        //return [];
-        //return ['tx_email_usuario' => 'teste@gmail.com'];
-        //return ['tx_nome_usuario' => '', 'tx_email_usuario' => '', 'tx_senha_usuario' => ''];
 
-        //$user = new Usuario($request->all());
+    }
 
-        //return $user;
+    public function update($id, Request $request) {
+        try {
+            $dados = $request->all();
+
+            return response()->json($this->service->update($id, $dados), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

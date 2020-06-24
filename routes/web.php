@@ -38,8 +38,13 @@ $router->group(['prefix' => "/api/representacao/"], function() use ($router){
     $router->delete("/{id}", "RepresentacaoController@destroy");
 });
 
-$router->group(['prefix' => "/api/osc/"], function() use ($router){
-    $router->get('/descricao/{id}', 'DadosGeraisController@getDescricao');
+$router->group(['prefix' => "/api/osc/descricao"], function() use ($router){
+    $router->get('/{id}', 'DadosGeraisController@getDescricao');
+    $router->get('/todos/{id}', 'DadosGeraisController@get');
+    $router->put('/{id}', 'DadosGeraisController@update');
+});
+
+$router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get('/', 'OscController@getAll');
     $router->get("/{id}", 'OscController@get');
     $router->post("/", "OscController@store");

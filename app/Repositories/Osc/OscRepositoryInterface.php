@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 interface OscRepositoryInterface
 {
-    public function __construct(Osc $_dados_gerais);
+    public function __construct(Osc $_osc);
 
     public function getAll();
 

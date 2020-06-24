@@ -71,6 +71,8 @@ class DadosGerais extends Model
      */
     public $incrementing = false;
 
+    public $timestamps = false;
+
     /**
      * @var array
      */
@@ -100,7 +102,19 @@ class DadosGerais extends Model
         'ft_link_estatuto_osc',
         'tx_historico',
         'ft_historico',
-        'tx_finalidades_estatutarias', 'ft_finalidades_estatutarias', 'tx_link_relatorio_auditoria', 'ft_link_relatorio_auditoria', 'tx_link_demonstracao_contabil', 'ft_link_demonstracao_contabil', 'tx_nome_responsavel_legal', 'ft_nome_responsavel_legal', 'cd_classe_atividade_economica_osc', 'ft_classe_atividade_economica_osc', 'bo_nao_possui_sigla_osc', 'bo_nao_possui_link_estatuto_osc'];
+        'tx_finalidades_estatutarias',
+        'ft_finalidades_estatutarias',
+        'tx_link_relatorio_auditoria',
+        'ft_link_relatorio_auditoria',
+        'tx_link_demonstracao_contabil',
+        'ft_link_demonstracao_contabil',
+        'tx_nome_responsavel_legal',
+        'ft_nome_responsavel_legal',
+        'cd_classe_atividade_economica_osc',
+        'ft_classe_atividade_economica_osc',
+        'bo_nao_possui_sigla_osc',
+        'bo_nao_possui_link_estatuto_osc'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
