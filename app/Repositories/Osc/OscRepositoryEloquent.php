@@ -12,9 +12,9 @@ class OscRepositoryEloquent implements OscRepositoryInterface
 {
     private $model;
 
-    public function __construct(Osc $_osc)
+    public function __construct(Osc $_dados_gerais)
     {
-        $this->model = $_osc;
+        $this->model = $_dados_gerais;
     }
 
     public function getAll()

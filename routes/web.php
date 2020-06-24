@@ -39,7 +39,7 @@ $router->group(['prefix' => "/api/representacao/"], function() use ($router){
 });
 
 $router->group(['prefix' => "/api/osc/"], function() use ($router){
-    $router->get('/descricao/{id}', 'OscController@getDescricao');
+    $router->get('/descricao/{id}', 'DadosGeraisController@getDescricao');
     $router->get('/', 'OscController@getAll');
     $router->get("/{id}", 'OscController@get');
     $router->post("/", "OscController@store");

@@ -2,32 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Osc\OscService;
+use App\Services\Osc\DadosGeraisService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class OscController extends Controller
+class DadosGeraisController extends Controller
 {
     private $service;
 
     /**
      * Create a new controller instance.
      *
-     * @param OscService $service
+     * @param DadosGeraisService $service
      */
-    public function __construct(OscService $_service)
+    public function __construct(DadosGeraisService $_service)
     {
         $this->service = $_service;
-    }
-
-    public function getAll()
-    {
-        try {
-            return response()->json($this->service->getAll(), Response::HTTP_OK);
-        }
-        catch (\Exception $e) {
-            return $e->getMessage();
-        }
     }
 
     public function get($id)

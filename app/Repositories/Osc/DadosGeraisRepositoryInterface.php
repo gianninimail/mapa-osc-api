@@ -4,12 +4,12 @@
 namespace App\Repositories\Osc;
 
 
-use App\Models\Osc\Osc;
+use App\Models\Osc\DadosGerais;
 use Illuminate\Database\Eloquent\Model;
 
-interface OscRepositoryInterface
+interface DadosGeraisRepositoryInterface
 {
-    public function __construct(Osc $_dados_gerais);
+    public function __construct(DadosGerais $__dados_gerais);
 
     public function getAll();
 
