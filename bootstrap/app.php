@@ -57,6 +57,10 @@ $app->singleton(
 |
 */
 
+//Registro do Middleware Cors para permitir acesso cruzado de Endereços
+$app->register(Fruitcake\Cors\CorsServiceProvider::class);
+
+
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
