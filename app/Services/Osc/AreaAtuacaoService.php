@@ -3,13 +3,13 @@
 
 namespace App\Services\Osc;
 
-use App\Repositories\Osc\DadosGeraisRepositoryInterface;
+use App\Repositories\Osc\AreaAtuacaoRepositoryInterface;
 
-class DadosGeraisService
+class AreaAtuacaoService
 {
     private $repo;
 
-    public function __construct(DadosGeraisRepositoryInterface $_repo)
+    public function __construct(AreaAtuacaoRepositoryInterface $_repo)
     {
         $this->repo = $_repo;
     }
@@ -19,14 +19,19 @@ class DadosGeraisService
         return $this->repo->getAll();
     }
 
-    public function getDescricao($id)
+    public function get($id)
+    {
+        return $this->repo->get($id);
+    }
+
+    public function getFormatado($id)
     {
         return $this->repo->getFormatado($id);
     }
 
-    public function get($id)
+    public function getAreasAtuacaoPorOSC($id_osc)
     {
-        return $this->repo->get($id);
+        return $this->repo->getAreasAtuacaoPorOSC($id_osc);
     }
 
     public function store(array $data)

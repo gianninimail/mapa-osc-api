@@ -4,18 +4,20 @@
 namespace App\Repositories\Osc;
 
 
-use App\Models\Osc\DadosGerais;
+use App\Models\Osc\AreaAtuacao;
 use Illuminate\Database\Eloquent\Model;
 
-interface DadosGeraisRepositoryInterface
+interface AreaAtuacaoRepositoryInterface
 {
-    public function __construct(DadosGerais $__dados_gerais);
+    public function __construct(AreaAtuacao $_area_atuacao);
 
     public function getAll();
 
     public function get($id);
 
     public function getFormatado($id);
+
+    public function getAreasAtuacaoPorOSC($_id_osc);
 
     public function store(array $data);
 

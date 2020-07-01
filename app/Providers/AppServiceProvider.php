@@ -22,5 +22,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repositories\Osc\DadosGeraisRepositoryInterface', 'App\Repositories\Osc\DadosGeraisRepositoryEloquent'
         );
+        $this->app->bind(
+            'App\Repositories\Osc\AreaAtuacaoRepositoryInterface', 'App\Repositories\Osc\AreaAtuacaoRepositoryEloquent'
+        );
     }
 }

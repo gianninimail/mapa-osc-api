@@ -38,11 +38,18 @@ $router->group(['prefix' => "/api/representacao/"], function() use ($router){
     $router->delete("/{id}", "RepresentacaoController@destroy");
 });
 
-$router->group(['prefix' => "/api/osc/descricao"], function() use ($router){
-    $router->get('/{id}', 'DadosGeraisController@getDescricao');
-    $router->get('/todos/{id}', 'DadosGeraisController@get');
+$router->group(['prefix' => "/api/osc/dados_gerais"], function() use ($router){
+    $router->get('/{id}', 'DadosGeraisController@get');
+    $router->get('/formatado/{id}', 'DadosGeraisController@getFormatado');
     $router->put('/{id}', 'DadosGeraisController@update');
 });
+
+$router->group(['prefix' => "/api/osc/area_atuacao"], function() use ($router){
+    $router->get('/{id}', 'AreaAtuacaoController@get');
+    $router->get('/formatado/{id}', 'AreaAtuacaoController@getFormatado');
+    $router->put('/{id}', 'AreaAtuacaoController@update');
+});
+
 
 $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get('/', 'OscController@getAll');
@@ -50,6 +57,9 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->post("/", "OscController@store");
     $router->put("/{id}", "OscController@update");
     $router->delete("/{id}", "OscController@destroy");
+
+    //Area de Atuação
+    $router->get('/areas_por_osc/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
 });
 /*
 $router->group(['prefix' => "/api/osc/"], function () use ($router) {

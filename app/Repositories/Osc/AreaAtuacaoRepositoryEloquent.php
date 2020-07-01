@@ -3,45 +3,48 @@
 
 namespace App\Repositories\Osc;
 
-use App\Models\Osc\DadosGerais;
+use App\Models\Osc\AreaAtuacao;
 use App\Repositories\Osc\DadosGeraisRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class DadosGeraisRepositoryEloquent implements DadosGeraisRepositoryInterface
+class AreaAtuacaoRepositoryEloquent implements AreaAtuacaoRepositoryInterface
 {
     private $model;
 
-    public function __construct(DadosGerais $_dados_gerais)
+    public function __construct(AreaAtuacao $_area_atuacao)
     {
-        $this->model = $_dados_gerais;
+        $this->model = $_area_atuacao;
     }
 
     public function getAll()
     {
-        return $this->model->all();//->whereIn('id_representacao', [1, 250, 251]);//->orderBy('id_representacao', 'asc');
+        return $this->model->all();
     }
 
     public function get($id)
     {
-        $dados_gerais = $this->model->find($id);
+        $area_atuacao = $this->model->find($id);
 
-        return $dados_gerais;
+        return $area_atuacao;
     }
 
     public function getFormatado($id)
     {
-        $dados_gerais = $this->model->find($id,
+        $area_atuacao = $this->model->find($id,
             [
                 'id_osc'
-                ,'tx_finalidades_estatutarias'
-                ,'tx_historico'
-                ,'tx_link_estatuto_osc'
-                ,'tx_missao_osc'
-                ,'tx_visao_osc'
+                ,'id_area_atuacao'
             ]
         );
 
-        return $dados_gerais;
+        return $area_atuacao;
+    }
+
+    public function getAreasAtuacaoPorOSC($_id_osc)
+    {
+        $areas_atuacao = $this->model->where('id_osc', $_id_osc)->get();
+
+        return $areas_atuacao;
     }
 
     public function store(array $data)
