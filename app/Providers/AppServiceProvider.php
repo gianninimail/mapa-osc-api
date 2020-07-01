@@ -25,5 +25,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repositories\Osc\AreaAtuacaoRepositoryInterface', 'App\Repositories\Osc\AreaAtuacaoRepositoryEloquent'
         );
+        $this->app->bind(
+            'App\Repositories\Osc\CertificadoRepositoryInterface', 'App\Repositories\Osc\CertificadoRepositoryEloquent'
+        );
     }
 }

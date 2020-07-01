@@ -3,17 +3,17 @@
 
 namespace App\Repositories\Osc;
 
-use App\Models\Osc\AreaAtuacao;
-use App\Repositories\Osc\AreaAtuacaoRepositoryInterface;
+use App\Models\Osc\Certificado;
+use App\Repositories\Osc\CertificadoRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class AreaAtuacaoRepositoryEloquent implements AreaAtuacaoRepositoryInterface
+class CertificadoRepositoryEloquent implements CertificadoRepositoryInterface
 {
     private $model;
 
-    public function __construct(AreaAtuacao $_area_atuacao)
+    public function __construct(Certificado $_certificado)
     {
-        $this->model = $_area_atuacao;
+        $this->model = $_certificado;
     }
 
     public function getAll()
@@ -23,28 +23,28 @@ class AreaAtuacaoRepositoryEloquent implements AreaAtuacaoRepositoryInterface
 
     public function get($id)
     {
-        $area_atuacao = $this->model->find($id);
+        $certificado = $this->model->find($id);
 
-        return $area_atuacao;
+        return $certificado;
     }
 
     public function getFormatado($id)
     {
-        $area_atuacao = $this->model->find($id,
+        $certificado = $this->model->find($id,
             [
                 'id_osc'
-                ,'id_area_atuacao'
+                ,'id_certificado'
             ]
         );
 
-        return $area_atuacao;
+        return $certificado;
     }
 
-    public function getAreasAtuacaoPorOSC($_id_osc)
+    public function getCertificadosPorOSC($_id_osc)
     {
-        $areas_atuacao = $this->model->where('id_osc', $_id_osc)->get();
+        $certificado = $this->model->where('id_osc', $_id_osc)->get();
 
-        return $areas_atuacao;
+        return $certificado;
     }
 
     public function store(array $data)
