@@ -40,7 +40,7 @@ class OscRepositoryEloquent implements OscRepositoryInterface
             'ft_identificador_osc' => $osc->ft_identificador_osc,
             'tx_razao_social_osc' => $osc->dados_gerais->tx_razao_social_osc,
             'ft_razao_social_osc' => $osc->dados_gerais->ft_razao_social_osc,
-            //'im_logo' => $osc->dados_gerais->im_logo,
+            'im_logo' => $osc->dados_gerais->im_logo,
             'ft_logo' => $osc->dados_gerais->ft_logo,
             'cd_natureza_juridica_osc' => $osc->dados_gerais->cd_natureza_juridica_osc,
             'tx_nome_natureza_juridica_osc' => $osc->dados_gerais->natureza_juridica->tx_nome_natureza_juridica,
