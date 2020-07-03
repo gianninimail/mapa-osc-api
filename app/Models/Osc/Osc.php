@@ -90,7 +90,7 @@ class Osc extends Model
     /**
      * @var desativar coluna BD
      */
-    public $timestamps = false;
+    //public $timestamps = false;
 
     //------------------------------------------METODOS DE RELACIONAMENTOS-------------------------------------------------------------------------------------//
     /**

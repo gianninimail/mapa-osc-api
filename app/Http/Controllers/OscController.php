@@ -49,6 +49,15 @@ class OscController extends Controller
             return $e->getMessage();
         }
     }
+    public function getCabecalho($id)
+    {
+        try {
+            return response()->json($this->service->getCabecalho($id), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     public function store(Request $request) {
         //return [];

@@ -4,18 +4,20 @@
 namespace App\Repositories\Osc;
 
 
-use App\Models\Osc\Osc;
+use App\Models\Osc\Projeto;
 use Illuminate\Database\Eloquent\Model;
 
-interface OscRepositoryInterface
+interface ProjetoRepositoryInterface
 {
-    public function __construct(Osc $_osc);
+    public function __construct(Projeto $_projeto);
 
     public function getAll();
 
     public function get($id);
 
-    public function getCabecalho($id);
+    public function getFormatado($id);
+
+    public function getProjetosPorOSC($_id_osc);
 
     public function store(array $data);
 

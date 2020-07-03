@@ -54,6 +54,7 @@ $router->group(['prefix' => "/api/osc/area_atuacao"], function() use ($router){
 $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get('/', 'OscController@getAll');
     $router->get("/{id}", 'OscController@get');
+    $router->get("/cabecalho/{id}", 'OscController@getCabecalho');
     $router->post("/", "OscController@store");
     $router->put("/{id}", "OscController@update");
     $router->delete("/{id}", "OscController@destroy");
@@ -63,6 +64,9 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //Certificados
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
+
+    //Certificados
+    $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
 });
 /*
 $router->group(['prefix' => "/api/osc/"], function () use ($router) {

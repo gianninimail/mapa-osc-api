@@ -119,7 +119,7 @@ class DadosGerais extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function NaturezaJuridica()
+    public function natureza_juridica()
     {
         return $this->belongsTo('App\Models\Syst\NaturezaJuridica', 'cd_natureza_juridica_osc', 'cd_natureza_juridica');
     }

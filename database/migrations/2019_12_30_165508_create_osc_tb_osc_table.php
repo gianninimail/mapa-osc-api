@@ -23,6 +23,7 @@ class CreateOsctbOscTable extends Migration {
 			$table->boolean('bo_osc_ativa')->comment('Flag de OSC Ativa');
 			$table->boolean('bo_nao_possui_projeto')->nullable();
 			$table->text('ft_nao_possui_projeto')->nullable();
+            $table->timestamps();
 		});
 	}
 
