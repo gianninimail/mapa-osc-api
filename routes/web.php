@@ -49,31 +49,33 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->post("/", "OscController@store");
     $router->put("/{id}", "OscController@update");
     $router->delete("/{id}", "OscController@destroy");
-
-    //DADOS GERAIS | A PRIMARY KEY é ID OSC
-    $router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
-        $router->get('/{id}', 'DadosGeraisController@get');
-        $router->get('/formatado/{id}', 'DadosGeraisController@getFormatado');
-        $router->put('/{id}', 'DadosGeraisController@update');
-    });
-
-    //Area de Atuação
-    $router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
-
-    //Certificados
-    $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
-
-    //Projetos
-    $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
-
-    //REPRESENTAÇÃO
-    $router->group(['prefix' => "/api/representacao/"], function() use ($router){
-        $router->get("/{id}", 'RepresentacaoController@get');
-        $router->post("/", "RepresentacaoController@store");
-        $router->put("/{id}", "RepresentacaoController@update");
-        $router->delete("/{id}", "RepresentacaoController@destroy");
-    });
 });
+
+//DADOS GERAIS | A PRIMARY KEY é ID OSC
+$router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
+    $router->get('/{id}', 'DadosGeraisController@get');
+    $router->get('/formatado/{id}', 'DadosGeraisController@getFormatado');
+    $router->put('/formatado/{id}', 'DadosGeraisController@updateFormatado');
+    $router->put('/{id}', 'DadosGeraisController@update');
+});
+
+//Area de Atuação
+$router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
+
+//Certificados
+$router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
+
+//Projetos
+$router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
+
+//REPRESENTAÇÃO
+$router->group(['prefix' => "/api/representacao/"], function() use ($router){
+    $router->get("/{id}", 'RepresentacaoController@get');
+    $router->post("/", "RepresentacaoController@store");
+    $router->put("/{id}", "RepresentacaoController@update");
+    $router->delete("/{id}", "RepresentacaoController@destroy");
+});
+
 /*
 $router->group(['prefix' => "/api/osc/"], function () use ($router) {
     $router->get('/barratransparencia/{id_osc}', 'App\Http\Controllers\AnalisesController@obterBarraTransparenciaOsc');

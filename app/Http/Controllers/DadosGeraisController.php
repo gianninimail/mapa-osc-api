@@ -55,4 +55,15 @@ class DadosGeraisController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function updateFormatado($id, Request $request) {
+        try {
+            $dados = $request->all();
+
+            return response()->json($this->service->update($id, $dados), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
