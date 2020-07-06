@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $tx_nome_natureza_juridica
  * @property Osc.tbDadosGerai[] $osc.tbDadosGerais
  */
-class NaturezaJuridica extends Model
+class DCNaturezaJuridica extends Model
 {
     /**
      * The table associated with the model.

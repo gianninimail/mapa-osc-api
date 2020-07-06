@@ -59,12 +59,45 @@ class Localizacao extends Model
     /**
      * @var array
      */
-    protected $fillable = ['cd_fonte_geocodificacao', 'tx_endereco', 'ft_endereco', 'nr_localizacao', 'ft_localizacao', 'tx_endereco_complemento', 'ft_endereco_complemento', 'tx_bairro', 'ft_bairro', 'cd_municipio', 'ft_municipio', 'geo_localizacao', 'ft_geo_localizacao', 'nr_cep', 'ft_cep', 'tx_endereco_corrigido', 'ft_endereco_corrigido', 'tx_bairro_encontrado', 'ft_bairro_encontrado', 'ft_fonte_geocodificacao', 'dt_geocodificacao', 'ft_data_geocodificacao', 'bo_oficial', 'qualidade_classificacao'];
+    protected $fillable = [
+        'cd_fonte_geocodificacao',
+        'tx_endereco',
+        'ft_endereco',
+        'nr_localizacao',
+        'ft_localizacao',
+        'tx_endereco_complemento',
+        'ft_endereco_complemento',
+        'tx_bairro',
+        'ft_bairro',
+        'cd_municipio',
+        'ft_municipio',
+        'geo_localizacao',
+        'ft_geo_localizacao',
+        'nr_cep',
+        'ft_cep',
+        'tx_endereco_corrigido',
+        'ft_endereco_corrigido',
+        'tx_bairro_encontrado',
+        'ft_bairro_encontrado',
+        'ft_fonte_geocodificacao',
+        'dt_geocodificacao',
+        'ft_data_geocodificacao',
+        'bo_oficial',
+        'qualidade_classificacao'
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function municipio()
+    {
+        return $this->hasOne('App\Models\Spat\Municipio','edmu_cd_municipio', 'cd_municipio');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function FonteGeocodificacao()
+    public function fonte_geocodificacao()
     {
         return $this->belongsTo('App\Models\Syst\FonteGeocodificacao', 'cd_fonte_geocodificacao', 'cd_fonte_geocodoficacao');
     }
@@ -72,7 +105,7 @@ class Localizacao extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Osc()
+    public function osc()
     {
         return $this->belongsTo('App\Models\Osc\Osc', 'id_osc', 'id_osc');
     }

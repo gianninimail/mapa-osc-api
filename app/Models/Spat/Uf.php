@@ -57,7 +57,7 @@ class Uf extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Regiao()
+    public function regiao()
     {
         return $this->belongsTo('App\Models\Spat\Regiao', 'edre_cd_regiao', 'edre_cd_regiao');
     }
@@ -65,7 +65,7 @@ class Uf extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Certificados()
+    public function certificados()
     {
         return $this->hasMany('App\Models\Osc\Certificado', 'cd_uf', 'eduf_cd_uf');
     }
@@ -73,7 +73,7 @@ class Uf extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Municipios()
+    public function municipios()
     {
         return $this->hasMany('App\Models\Spat\Municipio', 'eduf_cd_uf', 'eduf_cd_uf');
     }
@@ -81,7 +81,7 @@ class Uf extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function IpeadataUfs()
+    public function ipea_data_uf()
     {
         return $this->hasMany('App\Models\IpeaData\IpeaDataUf', 'cd_uf', 'eduf_cd_uf');
     }
@@ -89,7 +89,7 @@ class Uf extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Projetos()
+    public function projetos()
     {
         return $this->hasMany('App\Models\Osc\Projeto', 'cd_uf', 'eduf_cd_uf');
     }
@@ -97,7 +97,7 @@ class Uf extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Usuarios()
+    public function usuarios()
     {
         return $this->hasMany('App\Models\Portal\Usuario', 'cd_uf', 'eduf_cd_uf');
     }

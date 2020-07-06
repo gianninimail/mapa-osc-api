@@ -2,7 +2,10 @@
 
 namespace App\Models\Osc;
 
+use DeepCopy\Matcher\PropertyNameMatcher;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * @property int $id_osc
@@ -44,9 +47,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $ft_classe_atividade_economica_osc
  * @property boolean $bo_nao_possui_sigla_osc
  * @property boolean $bo_nao_possui_link_estatuto_osc
- * @property Syst.dcNaturezaJuridica $syst.dcNaturezaJuridica
- * @property Syst.dcSituacaoImovel $syst.dcSituacaoImovel
- * @property Osc.tbOsc $osc.tbOsc
+ * @property \App\Models\Syst\DCNaturezaJuridica $natureza_juridica
+ * @property \App\Models\Syst\ClasseAtividadeEconomica $classe_atividade_economica
+ * @property \App\Models\Syst\SituacaoImovel $situacao_imovel
+ * @property Osc $osc
  */
 class DadosGerais extends Model
 {
@@ -117,17 +121,25 @@ class DadosGerais extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function natureza_juridica()
+    public function classe_atividade_economica()
     {
-        return $this->belongsTo('App\Models\Syst\NaturezaJuridica', 'cd_natureza_juridica_osc', 'cd_natureza_juridica');
+        return $this->hasOne('App\Models\Syst\ClasseAtividadeEconomica', 'cd_classe_atividade_economica', 'cd_classe_atividade_economica_osc');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function SituacaoImovel()
+    public function natureza_juridica()
+    {
+        return $this->belongsTo('App\Models\Syst\DCNaturezaJuridica', 'cd_natureza_juridica_osc', 'cd_natureza_juridica');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function situacao_imovel()
     {
         return $this->belongsTo('App\Models\Syst\SituacaoImovel', 'cd_situacao_imovel_osc', 'cd_situacao_imovel');
     }
@@ -135,7 +147,7 @@ class DadosGerais extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Osc()
+    public function osc()
     {
         return $this->belongsTo('App\Models\Osc\Osc', 'id_osc', 'id_osc');
     }

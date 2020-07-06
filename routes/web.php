@@ -31,18 +31,8 @@ $router->get('/api/representacoes/', 'RepresentacaoController@getAll');
 
 $router->get('/api/osc/{id}', 'OscController@get');
 
-$router->group(['prefix' => "/api/representacao/"], function() use ($router){
-    $router->get("/{id}", 'RepresentacaoController@get');
-    $router->post("/", "RepresentacaoController@store");
-    $router->put("/{id}", "RepresentacaoController@update");
-    $router->delete("/{id}", "RepresentacaoController@destroy");
-});
 
-$router->group(['prefix' => "/api/osc/dados_gerais"], function() use ($router){
-    $router->get('/{id}', 'DadosGeraisController@get');
-    $router->get('/formatado/{id}', 'DadosGeraisController@getFormatado');
-    $router->put('/{id}', 'DadosGeraisController@update');
-});
+
 
 $router->group(['prefix' => "/api/osc/area_atuacao"], function() use ($router){
     $router->get('/{id}', 'AreaAtuacaoController@get');
@@ -55,9 +45,17 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get('/', 'OscController@getAll');
     $router->get("/{id}", 'OscController@get');
     $router->get("/cabecalho/{id}", 'OscController@getCabecalho');
+    $router->get("/dados_gerais/{id}", 'OscController@getDadosGerais');
     $router->post("/", "OscController@store");
     $router->put("/{id}", "OscController@update");
     $router->delete("/{id}", "OscController@destroy");
+
+    //DADOS GERAIS | A PRIMARY KEY é ID OSC
+    $router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
+        $router->get('/{id}', 'DadosGeraisController@get');
+        $router->get('/formatado/{id}', 'DadosGeraisController@getFormatado');
+        $router->put('/{id}', 'DadosGeraisController@update');
+    });
 
     //Area de Atuação
     $router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
@@ -65,8 +63,16 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     //Certificados
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
 
-    //Certificados
+    //Projetos
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
+
+    //REPRESENTAÇÃO
+    $router->group(['prefix' => "/api/representacao/"], function() use ($router){
+        $router->get("/{id}", 'RepresentacaoController@get');
+        $router->post("/", "RepresentacaoController@store");
+        $router->put("/{id}", "RepresentacaoController@update");
+        $router->delete("/{id}", "RepresentacaoController@destroy");
+    });
 });
 /*
 $router->group(['prefix' => "/api/osc/"], function () use ($router) {

@@ -19,14 +19,19 @@ class OscService
         return $this->repo->getAll();
     }
 
+    public function get($id)
+    {
+        return $this->repo->get($id);
+    }
+
     public function getCabecalho($id)
     {
         return $this->repo->getCabecalho($id);
     }
 
-    public function get($id)
+    public function getDadosGerais($id)
     {
-        return $this->repo->get($id);
+        return $this->repo->getDadosGerais($id);
     }
 
     public function store(array $data)

@@ -55,7 +55,7 @@ class Municipio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Ufs()
+    public function uf()
     {
         return $this->belongsTo('App\Models\Spat\Uf', 'eduf_cd_uf', 'eduf_cd_uf');
     }
@@ -63,7 +63,7 @@ class Municipio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Certificados()
+    public function certificados()
     {
         return $this->hasMany('App\Models\Spat\Certificado', 'cd_municipio', 'edmu_cd_municipio');
     }
@@ -71,7 +71,7 @@ class Municipio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function IpeaDatas()
+    public function ipea_data()
     {
         return $this->hasMany('App\Models\IpeaData\IpeaData', 'cd_municipio', 'edmu_cd_municipio');
     }
@@ -79,7 +79,7 @@ class Municipio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Projetos()
+    public function projetos()
     {
         return $this->hasMany('App\Models\Osc\Projeto', 'cd_municipio', 'edmu_cd_municipio');
     }
@@ -87,7 +87,7 @@ class Municipio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Usuarios()
+    public function usuarios()
     {
         return $this->hasMany('App\Models\Portal\Usuario', 'cd_municipio', 'edmu_cd_municipio');
     }

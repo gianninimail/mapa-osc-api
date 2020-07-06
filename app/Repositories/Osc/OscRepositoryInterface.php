@@ -17,6 +17,8 @@ interface OscRepositoryInterface
 
     public function getCabecalho($id);
 
+    public function getDadosGerais($id);
+
     public function store(array $data);
 
     public function update($id, array $data);
