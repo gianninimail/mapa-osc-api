@@ -16,19 +16,7 @@ class DadosGeraisRepositoryEloquent implements DadosGeraisRepositoryInterface
         $this->model = $_dados_gerais;
     }
 
-    public function getAll()
-    {
-        return $this->model->all();//->whereIn('id_representacao', [1, 250, 251]);//->orderBy('id_representacao', 'asc');
-    }
-
-    public function get($id)
-    {
-        $dados_gerais = $this->model->find($id);
-
-        return $dados_gerais;
-    }
-
-    public function getFormatado($id)
+    public function getDescricao($id)
     {
         $dados_gerais = $this->model->find($id,
             [
@@ -49,7 +37,7 @@ class DadosGeraisRepositoryEloquent implements DadosGeraisRepositoryInterface
         return $this->model->create($data);
     }
 
-    public function update($id, array $data)
+    public function updateDescricao($id, array $data)
     {
         return $this->model->find($id)->update($data);
     }

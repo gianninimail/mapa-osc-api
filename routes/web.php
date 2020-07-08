@@ -27,6 +27,69 @@ $router->get('/api/', function () use ($router) {
 
 $router->post('/api/user/', 'UsuarioController@store');
 
+$router->group(['prefix' => "/api/osc"], function() use ($router){
+
+    //ROTAS GERAIS DO MODELO OSC
+    $router->get('/', 'OscController@getAll');
+    $router->get("/{id}", 'OscController@get');
+    $router->post("/", "OscController@store");
+    $router->put("/{id}", "OscController@update");
+    $router->delete("/{id}", "OscController@destroy");
+
+    //INFORMAÇÕES DE CABEÇALHO
+    $router->get("/cabecalho/{id}", 'OscController@getCabecalho');
+
+    //INFORMAÇÕES DE DADOS GERAIS
+    $router->get("/dados_gerais/{id}", 'OscController@getDadosGerais');
+
+    //INFORMAÇÕES DE AREA E SUBAREA DE ATUAÇÃO DA OSC
+    $router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
+
+    //INFORMAÇÕES DE DESCRIÇÃO DA OSC
+    $router->get('/descricao/{id}', 'DadosGeraisController@getDescricao');
+    $router->put('/descricao/{id}', 'DadosGeraisController@updateDescricao');
+
+    //INFORMAÇÕES DE TITULAÇÕES E CERTIFICAÇÕES
+    $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
+
+    //INFORMAÇÕES DAS RELAÇÕES DE TRABALHO E GOVERNANÇA
+    $router->get("/rel_trabalho_e_governanca/{id}", 'OscController@getRelTrabalhoAndGovernanca');
+
+    //INFORMAÇÕES DE ESPAÇOS DE PARTICIPAÇÃO SOCIAL
+    $router->get("/participacao_social/{id}", 'OscController@getParticipacaoSocial');
+
+    //INFORMAÇÕES DE PROJETOS
+    $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
+});
+
+/*
+//DADOS GERAIS | A PRIMARY KEY é ID OSC
+$router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
+    $router->get('/{id}', 'DadosGeraisController@get');
+
+
+    $router->put('/{id}', 'DadosGeraisController@update');
+});
+
+*/
+
+
+
+/*
+
+//REPRESENTAÇÃO
+$router->group(['prefix' => "/api/representacao/"], function() use ($router){
+    $router->get("/{id}", 'RepresentacaoController@get');
+    $router->post("/", "RepresentacaoController@store");
+    $router->put("/{id}", "RepresentacaoController@update");
+    $router->delete("/{id}", "RepresentacaoController@destroy");
+});
+
+
+*/
+
+
+/*
 $router->get('/api/representacoes/', 'RepresentacaoController@getAll');
 
 $router->get('/api/osc/{id}', 'OscController@get');
@@ -39,44 +102,8 @@ $router->group(['prefix' => "/api/osc/area_atuacao"], function() use ($router){
     $router->get('/formatado/{id}', 'AreaAtuacaoController@getFormatado');
     $router->put('/{id}', 'AreaAtuacaoController@update');
 });
+*/
 
-
-$router->group(['prefix' => "/api/osc"], function() use ($router){
-    $router->get('/', 'OscController@getAll');
-    $router->get("/{id}", 'OscController@get');
-    $router->get("/cabecalho/{id}", 'OscController@getCabecalho');
-    $router->get("/dados_gerais/{id}", 'OscController@getDadosGerais');
-    $router->get("/rel_trabalho_e_governanca/{id}", 'OscController@getRelTrabalhoAndGovernanca');
-    $router->get("/participacao_social/{id}", 'OscController@getParticipacaoSocial');
-    $router->post("/", "OscController@store");
-    $router->put("/{id}", "OscController@update");
-    $router->delete("/{id}", "OscController@destroy");
-});
-
-//DADOS GERAIS | A PRIMARY KEY é ID OSC
-$router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
-    $router->get('/{id}', 'DadosGeraisController@get');
-    $router->get('/formatado/{id}', 'DadosGeraisController@getFormatado');
-    $router->put('/formatado/{id}', 'DadosGeraisController@updateFormatado');
-    $router->put('/{id}', 'DadosGeraisController@update');
-});
-
-//Area de Atuação
-$router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
-
-//Certificados
-$router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
-
-//Projetos
-$router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
-
-//REPRESENTAÇÃO
-$router->group(['prefix' => "/api/representacao/"], function() use ($router){
-    $router->get("/{id}", 'RepresentacaoController@get');
-    $router->post("/", "RepresentacaoController@store");
-    $router->put("/{id}", "RepresentacaoController@update");
-    $router->delete("/{id}", "RepresentacaoController@destroy");
-});
 
 /*
 $router->group(['prefix' => "/api/osc/"], function () use ($router) {

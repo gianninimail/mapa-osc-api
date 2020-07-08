@@ -140,18 +140,21 @@ class OscRepositoryEloquent implements OscRepositoryInterface
         return $dados;
     }
 
-    public function store(array $data)
+    public function getFontesRecursos($id)
     {
-        return $this->model->create($data);
+        $osc = $this->model->find($id);
+
+        $dados = [
+            'conselhos_politicas_publicas' => $osc->conselhos_politicas_publicas,
+            'conferencias_politicas_publicas' => $osc->conferencias_politicas_publicas,
+            'outros_espacos_participacao_social' => $osc->outros_espacos_participacao_social,
+        ];
+
+        return $dados;
     }
 
     public function update($id, array $data)
     {
         return $this->model->find($id)->update($data);
-    }
-
-    public function destroy($id)
-    {
-        return $this->model->find($id)->delete();
     }
 }

@@ -11,15 +11,11 @@ interface DadosGeraisRepositoryInterface
 {
     public function __construct(DadosGerais $__dados_gerais);
 
-    public function getAll();
-
-    public function get($id);
-
-    public function getFormatado($id);
+    public function getDescricao($id);
 
     public function store(array $data);
 
-    public function update($id, array $data);
+    public function updateDescricao($id, array $data);
 
     public function destroy($id);
 }

@@ -14,11 +14,6 @@ class DadosGeraisService
         $this->repo = $_repo;
     }
 
-    public function getAll()
-    {
-        return $this->repo->getAll();
-    }
-
     public function getDescricao($id)
     {
         return $this->repo->getFormatado($id);
@@ -29,18 +24,8 @@ class DadosGeraisService
         return $this->repo->get($id);
     }
 
-    public function store(array $data)
+    public function updateDescricao($id, array $data)
     {
-        // TODO: Implement store() method.
-    }
-
-    public function update($id, array $data)
-    {
-        return $this->repo->update($id, $data);
-    }
-
-    public function destroy($id)
-    {
-        // TODO: Implement destroy() method.
+        return $this->repo->updateDescricao($id, $data);
     }
 }

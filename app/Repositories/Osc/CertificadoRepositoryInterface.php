@@ -11,12 +11,6 @@ interface CertificadoRepositoryInterface
 {
     public function __construct(Certificado $_certificado);
 
-    public function getAll();
-
-    public function get($id);
-
-    public function getFormatado($id);
-
     public function getCertificadosPorOSC($_id_osc);
 
     public function store(array $data);

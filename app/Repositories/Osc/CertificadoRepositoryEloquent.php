@@ -16,30 +16,6 @@ class CertificadoRepositoryEloquent implements CertificadoRepositoryInterface
         $this->model = $_certificado;
     }
 
-    public function getAll()
-    {
-        return $this->model->all();
-    }
-
-    public function get($id)
-    {
-        $certificado = $this->model->find($id);
-
-        return $certificado;
-    }
-
-    public function getFormatado($id)
-    {
-        $certificado = $this->model->find($id,
-            [
-                'id_osc'
-                ,'id_certificado'
-            ]
-        );
-
-        return $certificado;
-    }
-
     public function getCertificadosPorOSC($_id_osc)
     {
         $certificado = $this->model->where('id_osc', $_id_osc)->get();

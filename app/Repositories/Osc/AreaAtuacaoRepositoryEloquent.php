@@ -16,30 +16,6 @@ class AreaAtuacaoRepositoryEloquent implements AreaAtuacaoRepositoryInterface
         $this->model = $_area_atuacao;
     }
 
-    public function getAll()
-    {
-        return $this->model->all();
-    }
-
-    public function get($id)
-    {
-        $area_atuacao = $this->model->find($id);
-
-        return $area_atuacao;
-    }
-
-    public function getFormatado($id)
-    {
-        $area_atuacao = $this->model->find($id,
-            [
-                'id_osc'
-                ,'id_area_atuacao'
-            ]
-        );
-
-        return $area_atuacao;
-    }
-
     public function getAreasAtuacaoPorOSC($_id_osc)
     {
         $areas_atuacao = $this->model->where('id_osc', $_id_osc)->get();

@@ -21,17 +21,7 @@ class DadosGeraisController extends Controller
         $this->service = $_service;
     }
 
-    public function get($id)
-    {
-        try {
-            return response()->json($this->service->get($id), Response::HTTP_OK);
-        }
-        catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function getFormatado($id)
+    public function getDescricao($id)
     {
         try {
             return response()->json($this->service->getDescricao($id), Response::HTTP_OK);
@@ -40,27 +30,12 @@ class DadosGeraisController extends Controller
             return $e->getMessage();
         }
     }
-
-    public function store(Request $request) {
-
-    }
-
-    public function update($id, Request $request) {
+    
+    public function updateDescricao($id, Request $request) {
         try {
             $dados = $request->all();
 
-            return response()->json($this->service->update($id, $dados), Response::HTTP_OK);
-        }
-        catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function updateFormatado($id, Request $request) {
-        try {
-            $dados = $request->all();
-
-            return response()->json($this->service->update($id, $dados), Response::HTTP_OK);
+            return response()->json($this->service->updateDescricao($id, $dados), Response::HTTP_OK);
         }
         catch (\Exception $e) {
             return $e->getMessage();
