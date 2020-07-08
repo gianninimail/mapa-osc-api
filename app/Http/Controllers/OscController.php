@@ -70,6 +70,16 @@ class OscController extends Controller
         }
     }
 
+    public function getParticipacaoSocial($id)
+    {
+        try {
+            return response()->json($this->service->getParticipacaoSocial($id), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function getDadosGerais($id)
     {
         try {

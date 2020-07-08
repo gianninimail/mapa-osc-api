@@ -47,6 +47,7 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get("/cabecalho/{id}", 'OscController@getCabecalho');
     $router->get("/dados_gerais/{id}", 'OscController@getDadosGerais');
     $router->get("/rel_trabalho_e_governanca/{id}", 'OscController@getRelTrabalhoAndGovernanca');
+    $router->get("/participacao_social/{id}", 'OscController@getParticipacaoSocial');
     $router->post("/", "OscController@store");
     $router->put("/{id}", "OscController@update");
     $router->delete("/{id}", "OscController@destroy");

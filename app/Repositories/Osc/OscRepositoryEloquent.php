@@ -118,14 +118,23 @@ class OscRepositoryEloquent implements OscRepositoryInterface
 
         $relacoes_trabalho['nr_trabalhores'] = $nr_trabalhores;
 
-        //dd($relacoes_trabalho);
-        //$relacoes_trabalho[] =
-
         $dados = [
-            //DADOS GERAIS
             'governanca' => $osc->quadro_de_dirigentes,
             'conselho_fiscal' => $osc->conselho_fiscal,
             'relacoes_trabalho' => $relacoes_trabalho,
+        ];
+
+        return $dados;
+    }
+
+    public function getParticipacaoSocial($id)
+    {
+        $osc = $this->model->find($id);
+
+        $dados = [
+            'conselhos_politicas_publicas' => $osc->conselhos_politicas_publicas,
+            'conferencias_politicas_publicas' => $osc->conferencias_politicas_publicas,
+            'outros_espacos_participacao_social' => $osc->outros_espacos_participacao_social,
         ];
 
         return $dados;
