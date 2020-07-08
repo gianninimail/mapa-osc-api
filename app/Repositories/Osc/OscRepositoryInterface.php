@@ -19,6 +19,8 @@ interface OscRepositoryInterface
 
     public function getDadosGerais($id);
 
+    public function getRelTrabalhoAndGovernanca($id);
+
     public function store(array $data);
 
     public function update($id, array $data);

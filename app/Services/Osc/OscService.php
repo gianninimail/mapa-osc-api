@@ -34,6 +34,11 @@ class OscService
         return $this->repo->getDadosGerais($id);
     }
 
+    public function getRelTrabalhoAndGovernanca($id)
+    {
+        return $this->repo->getRelTrabalhoAndGovernanca($id);
+    }
+
     public function store(array $data)
     {
         // TODO: Implement store() method.

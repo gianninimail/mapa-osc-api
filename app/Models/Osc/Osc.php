@@ -128,7 +128,7 @@ class Osc extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function trabalhadores()
+    public function relacoes_trabalho()
     {
         return $this->hasOne('App\Models\Osc\RelacoesTrabalho', 'id_osc', 'id_osc');
     }
