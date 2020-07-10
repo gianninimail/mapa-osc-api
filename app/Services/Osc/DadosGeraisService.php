@@ -16,7 +16,7 @@ class DadosGeraisService
 
     public function getDescricao($id)
     {
-        return $this->repo->getFormatado($id);
+        return $this->repo->getDescricao($id);
     }
 
     public function get($id)
