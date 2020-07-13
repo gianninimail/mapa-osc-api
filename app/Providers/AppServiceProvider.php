@@ -34,5 +34,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repositories\Osc\FonteRecursosRepositoryInterface', 'App\Repositories\Osc\FonteRecursosRepositoryEloquent'
         );
+
+        //DADOS DO SCHEMA SYST
+        $this->app->bind(
+            'App\Repositories\Syst\DCAreaAtuacaoRepositoryInterface', 'App\Repositories\Syst\DCAreaAtuacaoRepositoryEloquent'
+        );
     }
 }

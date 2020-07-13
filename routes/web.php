@@ -65,6 +65,11 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get('/fonte_recursos/{id_osc}', 'FonteRecursosController@getFonteRecursosPorOSC');
 });
 
+$router->group(['prefix' => "/api/areas_atuacao"], function() use ($router){
+    $router->get('/', 'DCAreaAtuacaoController@getAll');
+    $router->get('/{id}', 'DCAreaAtuacaoController@get');
+});
+
 /*
 //DADOS GERAIS | A PRIMARY KEY é ID OSC
 $router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
@@ -100,11 +105,7 @@ $router->get('/api/osc/{id}', 'OscController@get');
 
 
 
-$router->group(['prefix' => "/api/osc/area_atuacao"], function() use ($router){
-    $router->get('/{id}', 'AreaAtuacaoController@get');
-    $router->get('/formatado/{id}', 'AreaAtuacaoController@getFormatado');
-    $router->put('/{id}', 'AreaAtuacaoController@update');
-});
+
 */
 
 

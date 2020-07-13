@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $cd_area_atuacao
  * @property string $tx_nome_area_atuacao
- * @property Osc.tbAreaAtuacao[] $osc.tbAreaAtuacaos
- * @property Syst.dcSubareaAtuacao[] $syst.dcSubareaAtuacaos
+ * @property DCSubareaAtuacao[] $subareas_atuacao
  */
 class DCAreaAtuacao extends Model
 {
@@ -31,13 +30,9 @@ class DCAreaAtuacao extends Model
      */
     protected $fillable = ['tx_nome_area_atuacao'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function areas_atuacao()
-    {
-        return $this->hasMany('App\Models\Osc\AreaAtuacao', 'cd_area_atuacao', 'cd_area_atuacao');
-    }
+    protected $with = [
+      'subareas_atuacao'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
