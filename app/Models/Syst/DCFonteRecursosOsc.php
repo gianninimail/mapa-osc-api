@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Syst.dcOrigemFonteRecursosOsc $syst.dcOrigemFonteRecursosOsc
  * @property Osc.tbRecursosOsc[] $osc.tbRecursosOscs
  */
-class FonteRecursosOsc extends Model
+class DCFonteRecursosOsc extends Model
 {
     /**
      * The table associated with the model.
@@ -33,18 +33,10 @@ class FonteRecursosOsc extends Model
     protected $fillable = ['cd_origem_fonte_recursos_osc', 'tx_nome_fonte_recursos_osc'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function OrigemFonteRecursosOsc()
+    public function dc_origem_fonte_recurso()
     {
-        return $this->belongsTo('App\Models\Syst\OrigemFonteRecursosOsc', 'cd_origem_fonte_recursos_osc', 'cd_origem_fonte_recursos_osc');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function RecursosOscs()
-    {
-        return $this->hasMany('App\Models\Osc\RecursosOsc', 'cd_fonte_recursos_osc', 'cd_fonte_recursos_osc');
+        return $this->hasOne('App\Models\Syst\DCOrigemFonteRecursosOsc', 'cd_origem_fonte_recursos_osc', 'cd_origem_fonte_recursos_osc');
     }
 }

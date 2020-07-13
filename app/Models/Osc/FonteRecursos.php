@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Syst.dcFonteRecursosOsc $syst.dcFonteRecursosOsc
  * @property Osc.tbOsc $osc.tbOsc
  */
-class RecursosOsc extends Model
+class FonteRecursos extends Model
 {
     /**
      * The table associated with the model.
@@ -40,18 +40,19 @@ class RecursosOsc extends Model
      */
     protected $fillable = ['id_osc', 'cd_fonte_recursos_osc', 'ft_fonte_recursos_osc', 'dt_ano_recursos_osc', 'ft_ano_recursos_osc', 'nr_valor_recursos_osc', 'ft_valor_recursos_osc', 'bo_nao_possui', 'ft_nao_possui', 'cd_origem_fonte_recursos_osc'];
 
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function FonteRecursosOsc()
+    public function dc_fonte_recursos()
     {
-        return $this->belongsTo('App\Models\Syst\FonteRecursosOsc', 'cd_fonte_recursos_osc', 'cd_fonte_recursos_osc');
+        return $this->hasOne('App\Models\Syst\DCFonteRecursosOsc', 'cd_fonte_recursos_osc', 'cd_fonte_recursos_osc');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Osc()
+    public function osc()
     {
         return $this->belongsTo('App\Models\Osc\Osc', 'id_osc', 'id_osc');
     }

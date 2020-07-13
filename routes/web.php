@@ -60,6 +60,9 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //INFORMAÇÕES DE PROJETOS
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
+
+    //INFORMAÇÕES DE FONTES DE RECURSOS DA OSC
+    $router->get('/fonte_recursos/{id_osc}', 'FonteRecursosController@getFonteRecursosPorOSC');
 });
 
 /*

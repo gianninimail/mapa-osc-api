@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $tx_nome_origem_fonte_recursos_osc
  * @property Syst.dcFonteRecursosOsc[] $syst.dcFonteRecursosOscs
  */
-class OrigemFonteRecursosOsc extends Model
+class DCOrigemFonteRecursosOsc extends Model
 {
     /**
      * The table associated with the model.
@@ -30,11 +30,4 @@ class OrigemFonteRecursosOsc extends Model
      */
     protected $fillable = ['tx_nome_origem_fonte_recursos_osc'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function FonteRecursosOscs()
-    {
-        return $this->hasMany('App\Models\Syst\FonteRecursosOsc', 'cd_origem_fonte_recursos_osc', 'cd_origem_fonte_recursos_osc');
-    }
 }

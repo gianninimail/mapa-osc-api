@@ -266,6 +266,6 @@ class Osc extends Model
      */
     public function recursos()
     {
-        return $this->hasMany('App\Models\Osc\RecursosOsc', 'id_osc', 'id_osc');
+        return $this->hasMany('App\Models\Osc\FonteRecursos', 'id_osc', 'id_osc');
     }
 }
