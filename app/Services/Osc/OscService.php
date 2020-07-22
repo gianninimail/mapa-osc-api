@@ -34,6 +34,11 @@ class OscService
         return $this->repo->getDadosGerais($id);
     }
 
+    public function updateDadosGerais($id, $dados)
+    {
+        return $this->repo->updateDadosGerais($id, $dados);
+    }
+
     public function getRelTrabalhoAndGovernanca($id)
     {
         return $this->repo->getRelTrabalhoAndGovernanca($id);

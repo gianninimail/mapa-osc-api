@@ -41,6 +41,7 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //INFORMAÇÕES DE DADOS GERAIS
     $router->get("/dados_gerais/{id}", 'OscController@getDadosGerais');
+    $router->put("/dados_gerais/{id}", 'OscController@updateDadosGerais');
 
     //INFORMAÇÕES DE AREA E SUBAREA DE ATUAÇÃO DA OSC
     $router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
