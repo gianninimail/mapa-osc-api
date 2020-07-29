@@ -34,6 +34,8 @@ class ObjetivoOsc extends Model
      */
     protected $fillable = ['id_osc', 'cd_meta_osc', 'ft_objetivo_osc', 'bo_oficial'];
 
+    public $timestamps = false;
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

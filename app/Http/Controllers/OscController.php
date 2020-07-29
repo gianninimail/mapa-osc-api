@@ -65,9 +65,9 @@ class OscController extends Controller
     {
         try {
 
-            $dados[] = Input::all();
+            $data = $request->all();
 
-            $dados_gerais = $this->service->updateDadosGerais($id, $dados);
+            $dados_gerais = $this->service->updateDadosGerais($id, $data);
 
             if (!$dados_gerais)
             {
