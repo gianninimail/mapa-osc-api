@@ -45,6 +45,7 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //INFORMAÇÕES DE AREA E SUBAREA DE ATUAÇÃO DA OSC
     $router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
+    $router->put('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@updateAreasAtuacaoPorOSC');
 
     //INFORMAÇÕES DE DESCRIÇÃO DA OSC
     $router->get('/descricao/{id}', 'DadosGeraisController@getDescricao');
@@ -64,50 +65,8 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //INFORMAÇÕES DE FONTES DE RECURSOS DA OSC
     $router->get('/fonte_recursos/{id_osc}', 'FonteRecursosController@getFonteRecursosPorOSC');
+    $router->get('/anos_fonte_recursos/{id_osc}', 'FonteRecursosController@getAnoFonteRecursosPorOSC');
 });
-
-$router->group(['prefix' => "/api/areas_atuacao"], function() use ($router){
-    $router->get('/', 'DCAreaAtuacaoController@getAll');
-    $router->get('/{id}', 'DCAreaAtuacaoController@get');
-});
-
-/*
-//DADOS GERAIS | A PRIMARY KEY é ID OSC
-$router->group(['prefix' => "/api/dados_gerais"], function() use ($router){
-    $router->get('/{id}', 'DadosGeraisController@get');
-
-
-    $router->put('/{id}', 'DadosGeraisController@update');
-});
-
-*/
-
-
-
-/*
-
-//REPRESENTAÇÃO
-$router->group(['prefix' => "/api/representacao/"], function() use ($router){
-    $router->get("/{id}", 'RepresentacaoController@get');
-    $router->post("/", "RepresentacaoController@store");
-    $router->put("/{id}", "RepresentacaoController@update");
-    $router->delete("/{id}", "RepresentacaoController@destroy");
-});
-
-
-*/
-
-
-/*
-$router->get('/api/representacoes/', 'RepresentacaoController@getAll');
-
-$router->get('/api/osc/{id}', 'OscController@get');
-
-
-
-
-
-*/
 
 
 /*

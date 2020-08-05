@@ -31,6 +31,17 @@ class FonteRecursosController extends Controller
         }
     }
 
+    //cd_fonte_recurso_osc + ano formatado (yyyy)
+    public function getAnoFonteRecursosPorOSC($id_osc)
+    {
+        try {
+            return response()->json($this->service->getAnoFonteRecursosPorOSC($id_osc), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function store(Request $request) {
 
     }

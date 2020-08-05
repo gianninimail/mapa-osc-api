@@ -18,13 +18,21 @@ class FonteRecursosRepositoryEloquent implements FonteRecursosRepositoryInterfac
 
     public function getFonteRecursosPorOSC($_id_osc)
     {
-
-        //dd('teste');
         $fonte_recursos = $this->model->where('id_osc', $_id_osc)->with('dc_fonte_recursos.dc_origem_fonte_recurso')->get();
 
-        //dd($fonte_recursos[0]);
-
         return $fonte_recursos;
+    }
+
+    public function getAnoFonteRecursosPorOSC($_id_osc)
+    {
+        $anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->groupBy('id_osc', 'id_recursos_osc','dt_ano_recursos_osc')->get(['id_osc', 'id_recursos_osc', 'dt_ano_recursos_osc']);
+
+        foreach ($anos_fonte_recursos as $item)
+        {
+            $item->dt_ano_recursos_osc = substr($item->dt_ano_recursos_osc, 0, -6);
+        }
+
+        return $anos_fonte_recursos;
     }
 
     public function store(array $data)
