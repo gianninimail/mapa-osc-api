@@ -36,7 +36,7 @@ class CertificadoService
 
     public function store(array $data)
     {
-        // TODO: Implement store() method.
+        return $this->repo->store($data);
     }
 
     public function update($id, array $data)
@@ -44,8 +44,8 @@ class CertificadoService
         return $this->repo->update($id, $data);
     }
 
-    public function destroy($id)
+    public function delete($id_certificado)
     {
-        // TODO: Implement destroy() method.
+        return $this->repo->delete($id_certificado);
     }
 }

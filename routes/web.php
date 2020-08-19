@@ -52,7 +52,10 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->put('/descricao/{id}', 'DadosGeraisController@updateDescricao');
 
     //INFORMAÇÕES DE TITULAÇÕES E CERTIFICAÇÕES
+    $router->post('/certificados/{id_osc}', 'CertificadoController@store');
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
+    $router->put('/certificados/{id_osc}', 'CertificadoController@updateCertificados');
+    $router->delete('/certificados/{id_osc}', 'CertificadoController@delete');
 
     //INFORMAÇÕES DAS RELAÇÕES DE TRABALHO E GOVERNANÇA
     $router->get("/rel_trabalho_e_governanca/{id}", 'OscController@getRelTrabalhoAndGovernanca');

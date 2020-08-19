@@ -46,6 +46,8 @@ class Certificado extends Model
 
 
     protected $with = ['dc_certificado', 'municipio', 'uf'];
+
+    public $timestamps = false;
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

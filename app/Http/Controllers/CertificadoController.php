@@ -52,7 +52,17 @@ class CertificadoController extends Controller
     }
 
     public function store(Request $request) {
+        try {
+            $dados = $request->all();
 
+            if (!$this->service->store($dados))
+            {
+                return response()->json(['Resposta' => 'Certificado incluído com sucesso!'], Response::HTTP_OK);
+            }
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     public function update($id, Request $request) {
@@ -60,6 +70,18 @@ class CertificadoController extends Controller
             $dados = $request->all();
 
             return response()->json($this->service->update($id, $dados), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function delete($id_certificado) {
+        try {
+            if ($this->service->delete($id_certificado))
+            {
+                return response()->json(['Resposta' => 'Certificado deletado com sucesso!'], Response::HTTP_OK);
+            }
         }
         catch (\Exception $e) {
             return $e->getMessage();
