@@ -55,10 +55,7 @@ class CertificadoController extends Controller
         try {
             $dados = $request->all();
 
-            if (!$this->service->store($dados))
-            {
-                return response()->json(['Resposta' => 'Certificado incluído com sucesso!'], Response::HTTP_OK);
-            }
+            return response()->json($this->service->store($dados), Response::HTTP_OK);
         }
         catch (\Exception $e) {
             return $e->getMessage();
