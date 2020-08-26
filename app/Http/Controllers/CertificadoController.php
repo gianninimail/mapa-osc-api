@@ -24,7 +24,13 @@ class CertificadoController extends Controller
     public function get($id)
     {
         try {
-            return response()->json($this->service->get($id), Response::HTTP_OK);
+            $certificado = $this->service->get($id);
+            if (is_null($certificado))
+            {
+                return response()->json(['Resposta' => 'Certificado não encontrado!'], Response::HTTP_OK);
+            }
+
+            return $certificado;
         }
         catch (\Exception $e) {
             return $e->getMessage();

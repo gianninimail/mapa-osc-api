@@ -52,6 +52,7 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->put('/descricao/{id}', 'DadosGeraisController@updateDescricao');
 
     //INFORMAÇÕES DE TITULAÇÕES E CERTIFICAÇÕES
+    $router->get('/certificado/{id}', 'CertificadoController@get');
     $router->post('/certificados/{id_osc}', 'CertificadoController@store');
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
     $router->put('/certificados/{id_osc}', 'CertificadoController@updateCertificados');
