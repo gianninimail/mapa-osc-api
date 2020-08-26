@@ -37,20 +37,17 @@ class CertificadoController extends Controller
         }
     }
 
-    public function getFormatado($id)
-    {
-        try {
-            return response()->json($this->service->getFormatado($id), Response::HTTP_OK);
-        }
-        catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
     public function getCertificadosPorOSC($id_osc)
     {
         try {
-            return response()->json($this->service->getCertificadosPorOSC($id_osc), Response::HTTP_OK);
+            $certificados = $this->service->getCertificadosPorOSC($id_osc);
+
+            if (count($certificados) == 0)
+            {
+                return response()->json(['Resposta' => 'Nenhum Certificado foi encontrado para essa OSC!'], Response::HTTP_OK);
+            }
+
+            return $certificados;
         }
         catch (\Exception $e) {
             return $e->getMessage();
@@ -72,7 +69,14 @@ class CertificadoController extends Controller
         try {
             $dados = $request->all();
 
-            return response()->json($this->service->update($id, $dados), Response::HTTP_OK);
+            $certificado = $this->service->update($id, $dados);
+
+            if ($certificado)
+            {
+                return response()->json(['Resposta' => 'Certificado atualizado com sucesso!'], Response::HTTP_OK);
+            }
+
+            return $certificado;
         }
         catch (\Exception $e) {
             return $e->getMessage();

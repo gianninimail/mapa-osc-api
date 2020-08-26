@@ -24,11 +24,6 @@ class CertificadoService
         return $this->repo->get($id);
     }
 
-    public function getFormatado($id)
-    {
-        return $this->repo->getFormatado($id);
-    }
-
     public function getCertificadosPorOSC($id_osc)
     {
         return $this->repo->getCertificadosPorOSC($id_osc);

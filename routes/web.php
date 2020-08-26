@@ -55,8 +55,9 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->get('/certificado/{id}', 'CertificadoController@get');
     $router->post('/certificados/{id_osc}', 'CertificadoController@store');
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
-    $router->put('/certificados/{id_osc}', 'CertificadoController@updateCertificados');
+    //$router->put('/certificados/{id_osc}', 'CertificadoController@updateCertificados');
     $router->delete('/certificados/{id_osc}', 'CertificadoController@delete');
+    $router->put('/certificado/{id}', 'CertificadoController@update');
 
     //INFORMAÇÕES DAS RELAÇÕES DE TRABALHO E GOVERNANÇA
     $router->get("/rel_trabalho_e_governanca/{id}", 'OscController@getRelTrabalhoAndGovernanca');
