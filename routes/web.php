@@ -53,14 +53,23 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //INFORMAÇÕES DE TITULAÇÕES E CERTIFICAÇÕES
     $router->get('/certificado/{id}', 'CertificadoController@get');
-    $router->post('/certificados/{id_osc}', 'CertificadoController@store');
+    $router->post('/certificados/', 'CertificadoController@store');
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
     //$router->put('/certificados/{id_osc}', 'CertificadoController@updateCertificados');
     $router->delete('/certificados/{id_osc}', 'CertificadoController@delete');
     $router->put('/certificado/{id}', 'CertificadoController@update');
 
     //INFORMAÇÕES DAS RELAÇÕES DE TRABALHO E GOVERNANÇA
-    $router->get("/rel_trabalho_e_governanca/{id}", 'OscController@getRelTrabalhoAndGovernanca');
+    $router->get("/rel_trabalho_e_governanca/{id_osc}", 'OscController@getRelTrabalhoAndGovernanca');
+    //---------------------Relações de Trabalho-----------------------------------//
+    $router->get("/rel_trabalho/{id_osc}", 'RelacoesTrabalhoController@get');
+    $router->put("/rel_trabalho/{id_osc}", 'RelacoesTrabalhoController@update');
+    //$router->get("/rel_trabalho/{id}", 'RelacoesTrabalhoController@get');
+    //---------------------Governança----------------------------------------------//
+    $router->get("/governanca/{id}", 'GovernancaController@get');
+    $router->put("/governanca/{id}", 'GovernancaController@update');
+    $router->post("/governanca/", 'GovernancaController@store');
+    $router->delete("/governanca/{id}", 'GovernancaController@delete');
 
     //INFORMAÇÕES DE ESPAÇOS DE PARTICIPAÇÃO SOCIAL
     $router->get("/participacao_social/{id}", 'OscController@getParticipacaoSocial');

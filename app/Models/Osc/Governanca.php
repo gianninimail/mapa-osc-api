@@ -30,6 +30,8 @@ class Governanca extends Model
      */
     protected $primaryKey = 'id_dirigente';
 
+    public $timestamps = false;
+
     /**
      * @var array
      */
