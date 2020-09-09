@@ -53,10 +53,10 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
 
     //INFORMAÇÕES DE TITULAÇÕES E CERTIFICAÇÕES
     $router->get('/certificado/{id}', 'CertificadoController@get');
-    $router->post('/certificados/', 'CertificadoController@store');
+    $router->post('/certificado/', 'CertificadoController@store');
     $router->get('/certificados/{id_osc}', 'CertificadoController@getCertificadosPorOSC');
     //$router->put('/certificados/{id_osc}', 'CertificadoController@updateCertificados');
-    $router->delete('/certificados/{id_osc}', 'CertificadoController@delete');
+    $router->delete('/certificado/{id_osc}', 'CertificadoController@delete');
     $router->put('/certificado/{id}', 'CertificadoController@update');
 
     //INFORMAÇÕES DAS RELAÇÕES DE TRABALHO E GOVERNANÇA
@@ -70,6 +70,12 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->put("/governanca/{id}", 'GovernancaController@update');
     $router->post("/governanca/", 'GovernancaController@store');
     $router->delete("/governanca/{id}", 'GovernancaController@delete');
+    //---------------------Conselho Fiscal----------------------------------------------//
+    $router->get("/conselho/{id}", 'ConselhoFiscalController@get');
+    $router->post("/conselho/", 'ConselhoFiscalController@store');
+    $router->put("/conselho/{id}", 'ConselhoFiscalController@update');
+    $router->delete("/conselho/{id}", 'ConselhoFiscalController@delete');
+
 
     //INFORMAÇÕES DE ESPAÇOS DE PARTICIPAÇÃO SOCIAL
     $router->get("/participacao_social/{id}", 'OscController@getParticipacaoSocial');

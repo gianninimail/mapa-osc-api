@@ -28,6 +28,8 @@ class ConselhoFiscal extends Model
      */
     protected $primaryKey = 'id_conselheiro';
 
+    public $timestamps = false;
+
     /**
      * @var array
      */
