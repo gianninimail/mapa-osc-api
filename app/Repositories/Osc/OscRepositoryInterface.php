@@ -15,6 +15,8 @@ interface OscRepositoryInterface
 
     public function get($id);
 
+    public function getNumeroTotalOSCs();
+
     public function getCabecalho($id);
 
     public function getDadosGerais($id);

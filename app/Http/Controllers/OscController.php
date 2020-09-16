@@ -41,6 +41,16 @@ class OscController extends Controller
         }
     }
 
+    public function getNumeroTotalOSCs()
+    {
+        try {
+            return response()->json($this->service->getNumeroTotalOSCs(), Response::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function getCabecalho($id)
     {
         try {

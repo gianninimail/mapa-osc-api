@@ -24,6 +24,11 @@ class OscService
         return $this->repo->get($id);
     }
 
+    public function getNumeroTotalOSCs()
+    {
+        return $this->repo->getNumeroTotalOSCs();
+    }
+
     public function getCabecalho($id)
     {
         return $this->repo->getCabecalho($id);

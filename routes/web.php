@@ -27,21 +27,25 @@ $router->get('/api/', function () use ($router) {
 
 $router->post('/api/user/', 'UsuarioController@store');
 
-$router->group(['prefix' => "/api/osc"], function() use ($router){
+$router->group(['prefix' => '/api/osc'], function() use ($router){
 
     //ROTAS GERAIS DO MODELO OSC
     $router->get('/', 'OscController@getAll');
-    $router->get("/{id}", 'OscController@get');
-    $router->post("/", "OscController@store");
-    $router->put("/{id}", "OscController@update");
-    $router->delete("/{id}", "OscController@destroy");
+    $router->get('/{id}', 'OscController@get');
+    $router->post('/', 'OscController@store');
+    $router->put('/{id}', 'OscController@update');
+    $router->delete('/{id}', 'OscController@destroy');
+
+    //INFORMAÇÕES PARA O GRÁFICO
+    $router->get('/total_oscs/', 'OscController@getNumeroTotalOSCs');
+    //$router->get('/osc_com_certificacoes/', 'OscController@getNumeroOSCcomCertificacoes');
 
     //INFORMAÇÕES DE CABEÇALHO
-    $router->get("/cabecalho/{id}", 'OscController@getCabecalho');
+    $router->get('/cabecalho/{id}', 'OscController@getCabecalho');
 
     //INFORMAÇÕES DE DADOS GERAIS
-    $router->get("/dados_gerais/{id}", 'OscController@getDadosGerais');
-    $router->put("/dados_gerais/{id}", 'OscController@updateDadosGerais');
+    $router->get('/dados_gerais/{id}', 'OscController@getDadosGerais');
+    $router->put('/dados_gerais/{id}', 'OscController@updateDadosGerais');
 
     //INFORMAÇÕES DE AREA E SUBAREA DE ATUAÇÃO DA OSC
     $router->get('/areas_atuacao/{id_osc}', 'AreaAtuacaoController@getAreasAtuacaoPorOSC');
@@ -60,25 +64,25 @@ $router->group(['prefix' => "/api/osc"], function() use ($router){
     $router->put('/certificado/{id}', 'CertificadoController@update');
 
     //INFORMAÇÕES DAS RELAÇÕES DE TRABALHO E GOVERNANÇA
-    $router->get("/rel_trabalho_e_governanca/{id_osc}", 'OscController@getRelTrabalhoAndGovernanca');
+    $router->get('/rel_trabalho_e_governanca/{id_osc}', 'OscController@getRelTrabalhoAndGovernanca');
     //---------------------Relações de Trabalho-----------------------------------//
-    $router->get("/rel_trabalho/{id_osc}", 'RelacoesTrabalhoController@get');
-    $router->put("/rel_trabalho/{id_osc}", 'RelacoesTrabalhoController@update');
-    //$router->get("/rel_trabalho/{id}", 'RelacoesTrabalhoController@get');
+    $router->get('/rel_trabalho/{id_osc}', 'RelacoesTrabalhoController@get');
+    $router->put('/rel_trabalho/{id_osc}', 'RelacoesTrabalhoController@update');
+    //$router->get('/rel_trabalho/{id}', 'RelacoesTrabalhoController@get');
     //---------------------Governança----------------------------------------------//
-    $router->get("/governanca/{id}", 'GovernancaController@get');
-    $router->put("/governanca/{id}", 'GovernancaController@update');
-    $router->post("/governanca/", 'GovernancaController@store');
-    $router->delete("/governanca/{id}", 'GovernancaController@delete');
+    $router->get('/governanca/{id}', 'GovernancaController@get');
+    $router->put('/governanca/{id}', 'GovernancaController@update');
+    $router->post('/governanca/', 'GovernancaController@store');
+    $router->delete('/governanca/{id}', 'GovernancaController@delete');
     //---------------------Conselho Fiscal----------------------------------------------//
-    $router->get("/conselho/{id}", 'ConselhoFiscalController@get');
-    $router->post("/conselho/", 'ConselhoFiscalController@store');
-    $router->put("/conselho/{id}", 'ConselhoFiscalController@update');
-    $router->delete("/conselho/{id}", 'ConselhoFiscalController@delete');
+    $router->get('/conselho/{id}', 'ConselhoFiscalController@get');
+    $router->post('/conselho/', 'ConselhoFiscalController@store');
+    $router->put('/conselho/{id}', 'ConselhoFiscalController@update');
+    $router->delete('/conselho/{id}', 'ConselhoFiscalController@delete');
 
 
     //INFORMAÇÕES DE ESPAÇOS DE PARTICIPAÇÃO SOCIAL
-    $router->get("/participacao_social/{id}", 'OscController@getParticipacaoSocial');
+    $router->get('/participacao_social/{id}', 'OscController@getParticipacaoSocial');
 
     //INFORMAÇÕES DE PROJETOS
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');

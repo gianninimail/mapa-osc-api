@@ -21,7 +21,7 @@ class OscRepositoryEloquent implements OscRepositoryInterface
 
     public function getAll()
     {
-        return $this->model->all();
+        return $this->model->where;
     }
 
     public function get($id)
@@ -29,6 +29,13 @@ class OscRepositoryEloquent implements OscRepositoryInterface
         $osc = $this->model->find($id);
 
         return $osc;
+    }
+
+    public function getNumeroTotalOSCs()
+    {
+        $total_osc = $this->model->where('bo_osc_ativa', 1)->count();
+
+        return $total_osc;
     }
 
     public function getCabecalho($id)
