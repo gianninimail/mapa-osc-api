@@ -44,6 +44,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repositories\Osc\ConselhoFiscalRepositoryInterface', 'App\Repositories\Osc\ConselhoFiscalRepositoryEloquent'
         );
+        $this->app->bind(
+            'App\Repositories\Osc\ParticipacaoSocialConselhoRepositoryInterface', 'App\Repositories\Osc\ParticipacaoSocialConselhoRepositoryEloquent'
+        );
 
         //DADOS DO SCHEMA SYST
         $this->app->bind(

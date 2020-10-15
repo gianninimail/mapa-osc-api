@@ -16,12 +16,12 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/api/', function () use ($router) {
-    return ["description: API de dados do Mapa das Organizações da Sociedade Civil.",
-    "version: 3.0.0",
-    "homepage: https://mapaosc.ipea.gov.br/",
-    "keywords: 'php', 'lumen', 'api', 'rest', 'server, 'http', 'json', 'mapaosc', 'ipea'",
-    "license: LGPL-3.0",
-    "authors: {Thiago Giannini Ramos}"
+        return ["description: API de dados do Mapa das Organizações da Sociedade Civil.",
+        "version: 3.0.0",
+        "homepage: https://mapaosc.ipea.gov.br/",
+        "keywords: 'php', 'lumen', 'api', 'rest', 'server, 'http', 'json', 'mapaosc', 'ipea'",
+        "license: LGPL-3.0",
+        "authors: {Thiago Giannini Ramos}"
     ];
 });
 
@@ -37,7 +37,7 @@ $router->group(['prefix' => '/api/osc'], function() use ($router){
     $router->delete('/{id}', 'OscController@destroy');
 
     //INFORMAÇÕES PARA O GRÁFICO
-    $router->get('/total_oscs/', 'OscController@getNumeroTotalOSCs');
+    //$router->get('/total_oscs/', 'OscController@getNumeroTotalOSCs');
     //$router->get('/osc_com_certificacoes/', 'OscController@getNumeroOSCcomCertificacoes');
 
     //INFORMAÇÕES DE CABEÇALHO
@@ -83,6 +83,8 @@ $router->group(['prefix' => '/api/osc'], function() use ($router){
 
     //INFORMAÇÕES DE ESPAÇOS DE PARTICIPAÇÃO SOCIAL
     $router->get('/participacao_social/{id}', 'OscController@getParticipacaoSocial');
+
+    $router->get('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@get');
 
     //INFORMAÇÕES DE PROJETOS
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
