@@ -37,10 +37,10 @@ class ParticipacaoSocialConselhoController extends Controller
         }
     }
 
-    public function getConselhoFiscalPorOSC($id_osc)
+    public function getParticipacaoSocialConselhoPorOSC($id_osc)
     {
         try {
-            $conselhos = $this->service->getConselhoFiscalPorOSC($id_osc);
+            $conselhos = $this->service->getParticipacaoSocialConselhoPorOSC($id_osc);
 
             if (count($conselhos) == 0)
             {

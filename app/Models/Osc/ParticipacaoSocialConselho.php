@@ -41,6 +41,8 @@ class ParticipacaoSocialConselho extends Model
      */
     protected $primaryKey = 'id_conselho';
 
+    public $timestamps = false;
+
     /**
      * @var array
      */

@@ -24,7 +24,7 @@ class ParticipacaoSocialConselhoService
         return $this->repo->get($id);
     }
 
-    public function getConselhoFiscalPorOSC($id_osc)
+    public function getParticipacaoSocialConselhoPorOSC($id_osc)
     {
         return $this->repo->getParticipacaoSocialConselhoPorOSC($id_osc);
     }
