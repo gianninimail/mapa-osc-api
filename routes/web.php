@@ -92,11 +92,11 @@ $router->group(['prefix' => '/api/osc'], function() use ($router){
     $router->delete('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@delete');
 
     //ESPAÇOS DE PARTICIPAÇÃO SOCIAL CONFERẼNCIA
-    $router->get('/ps_conferencia/{id}', 'ParticipacaoSocialConselhoController@get');
-    $router->get('/ps_conferencia/{id}', 'ParticipacaoSocialConselhoController@getParticipacaoSocialConferenciaPorOSC');
-    $router->post('/ps_conferencia/', 'ParticipacaoSocialConselhoController@store');
-    $router->put('/ps_conferencia/{id}', 'ParticipacaoSocialConselhoController@update');
-    $router->delete('/ps_conferencia/{id}', 'ParticipacaoSocialConselhoController@delete');
+    $router->get('/ps_conferencia/{id}', 'ParticipacaoSocialConferenciaController@get');
+    $router->get('/ps_conferencias/{id}', 'ParticipacaoSocialConferenciaController@getParticipacaoSocialConferenciaPorOSC');
+    $router->post('/ps_conferencia/', 'ParticipacaoSocialConferenciaController@store');
+    $router->put('/ps_conferencia/{id}', 'ParticipacaoSocialConferenciaController@update');
+    $router->delete('/ps_conferencia/{id}', 'ParticipacaoSocialConferenciaController@delete');
 
     //INFORMAÇÕES DE PROJETOS
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
