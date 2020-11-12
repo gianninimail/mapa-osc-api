@@ -40,6 +40,7 @@ class ParticipacaoSocialConferencia extends Model
      */
     protected $fillable = ['cd_conferencia', 'id_osc', 'cd_forma_participacao_conferencia', 'ft_conferencia', 'dt_ano_realizacao', 'ft_ano_realizacao', 'ft_forma_participacao_conferencia', 'bo_oficial'];
 
+    public $timestamps = false;
 
     protected $with = [
         'dc_conferencia',

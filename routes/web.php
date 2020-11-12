@@ -84,12 +84,21 @@ $router->group(['prefix' => '/api/osc'], function() use ($router){
     //INFORMAÇÕES DE ESPAÇOS DE PARTICIPAÇÃO SOCIAL
     $router->get('/participacao_social/{id}', 'OscController@getParticipacaoSocial');
 
+    //ESPAÇOS DE PARTICIPAÇÃO SOCIAL CONSELHO
     $router->get('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@get');
     $router->get('/ps_conselhos/{id}', 'ParticipacaoSocialConselhoController@getParticipacaoSocialConselhoPorOSC');
     $router->post('/ps_conselho/', 'ParticipacaoSocialConselhoController@store');
     $router->put('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@update');
     $router->delete('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@delete');
 
+    //ESPAÇOS DE PARTICIPAÇÃO SOCIAL CONFERẼNCIA
+    $router->get('/ps_conferencia/{id}', 'ParticipacaoSocialConferenciaController@get');
+    $router->get('/ps_conferencias/{id}', 'ParticipacaoSocialConferenciaController@getParticipacaoSocialConferenciaPorOSC');
+    $router->post('/ps_conferencia/', 'ParticipacaoSocialConferenciaController@store');
+    $router->put('/ps_conferencia/{id}', 'ParticipacaoSocialConferenciaController@update');
+    $router->delete('/ps_conferencia/{id}', 'ParticipacaoSocialConferenciaController@delete');
+    
+    //ESPAÇOS DE PARTICIPAÇÃO SOCIAL OUTRA
     $router->get('/ps_outra/{id}', 'ParticipacaoSocialOutraController@get');
     $router->get('/ps_outras/{id}', 'ParticipacaoSocialOutraController@getParticipacaoSocialOutraPorOSC');
     $router->post('/ps_outra/', 'ParticipacaoSocialOutraController@store');
@@ -98,7 +107,7 @@ $router->group(['prefix' => '/api/osc'], function() use ($router){
     $router->delete('/ps_outra/{id}', 'ParticipacaoSocialOutraController@delete');
 
 
-  
+
     //INFORMAÇÕES DE PROJETOS
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
 
