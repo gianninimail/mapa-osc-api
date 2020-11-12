@@ -90,6 +90,15 @@ $router->group(['prefix' => '/api/osc'], function() use ($router){
     $router->put('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@update');
     $router->delete('/ps_conselho/{id}', 'ParticipacaoSocialConselhoController@delete');
 
+    $router->get('/ps_outra/{id}', 'ParticipacaoSocialOutraController@get');
+    $router->get('/ps_outras/{id}', 'ParticipacaoSocialOutraController@getParticipacaoSocialOutraPorOSC');
+    $router->post('/ps_outra/', 'ParticipacaoSocialOutraController@store');
+    $router->put('/ps_outra/{id}', 'ParticipacaoSocialOutraController@update');
+   
+    $router->delete('/ps_outra/{id}', 'ParticipacaoSocialOutraController@delete');
+
+
+  
     //INFORMAÇÕES DE PROJETOS
     $router->get('/projetos/{id_osc}', 'ProjetoController@getProjetosPorOSC');
 

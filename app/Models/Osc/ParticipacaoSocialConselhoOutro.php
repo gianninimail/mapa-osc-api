@@ -32,6 +32,8 @@ class ParticipacaoSocialConselhoOutro extends Model
      */
     protected $fillable = ['id_conselho', 'tx_nome_conselho', 'ft_nome_conselho'];
 
+    public $timestamp = false;
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
