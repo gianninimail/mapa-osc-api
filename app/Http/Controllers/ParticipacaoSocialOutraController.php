@@ -74,7 +74,7 @@ class ParticipacaoSocialOutraController extends Controller
 
             if ($outra)
             {
-                return response()->json(['Resposta' => 'Participação Social Conselho atualizado com sucesso!'], Response::HTTP_OK);
+                return response()->json(['Resposta' => 'Participação Social Outra atualizado com sucesso!'], Response::HTTP_OK);
             }
 
             return $outra;
@@ -88,7 +88,7 @@ class ParticipacaoSocialOutraController extends Controller
         try {
             if ($this->service->delete($id_outra))
             {
-                return response()->json(['Resposta' => 'Participação Social Conselho deletado com sucesso!'], Response::HTTP_OK);
+                return response()->json(['Resposta' => 'Participação Social Outra deletado com sucesso!'], Response::HTTP_OK);
             }
         }
         catch (\Exception $e) {
