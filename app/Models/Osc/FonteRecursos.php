@@ -56,4 +56,13 @@ class FonteRecursos extends Model
     {
         return $this->belongsTo('App\Models\Osc\Osc', 'id_osc', 'id_osc');
     }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+ /*
+     public function date_format(string format, string campo )
+    {
+        return $this->date_format(format, campo);
+    }
+    */
 }

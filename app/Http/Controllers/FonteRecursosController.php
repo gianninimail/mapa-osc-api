@@ -32,10 +32,10 @@ class FonteRecursosController extends Controller
     }
 
     //cd_fonte_recurso_osc + ano formatado (yyyy)
-    public function getAnoFonteRecursosPorOSC($id_osc)
+    public function getAnoFonteRecursosPorOSC($id_osc, $ano)
     {
         try {
-            return response()->json($this->service->getAnoFonteRecursosPorOSC($id_osc), Response::HTTP_OK);
+            return response()->json($this->service->getAnoFonteRecursosPorOSC($id_osc, $ano), Response::HTTP_OK);
         }
         catch (\Exception $e) {
             return $e->getMessage();

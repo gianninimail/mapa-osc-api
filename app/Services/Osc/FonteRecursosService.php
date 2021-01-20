@@ -19,9 +19,9 @@ class FonteRecursosService
         return $this->repo->getFonteRecursosPorOSC($id_osc);
     }
 
-    public function getAnoFonteRecursosPorOSC($id_osc)
+    public function getAnoFonteRecursosPorOSC($id_osc, $ano)
     {
-        return $this->repo->getAnoFonteRecursosPorOSC($id_osc);
+        return $this->repo->getAnoFonteRecursosPorOSC($id_osc, $ano);
     }
 
     public function store(array $data)

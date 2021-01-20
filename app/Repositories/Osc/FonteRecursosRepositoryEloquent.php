@@ -23,15 +23,24 @@ class FonteRecursosRepositoryEloquent implements FonteRecursosRepositoryInterfac
         return $fonte_recursos;
     }
 
-    public function getAnoFonteRecursosPorOSC($_id_osc)
+    public function getAnoFonteRecursosPorOSC($_id_osc, $_ano)
     {
-        $anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->groupBy('id_osc','dt_ano_recursos_osc')->get(['id_osc', 'dt_ano_recursos_osc']);
+    //$anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->groupBy('id_osc','dt_ano_recursos_osc')->get(['id_osc', 'dt_ano_recursos_osc']);
+    //$fonte_recursosfonte_recursos = $this->model->where('id_osc', $_id_osc)->get();
+    //$anos_fonte_recursos = $fonte_recursosfonte_recursos->where('dt_ano_recurso_osc', $_ano)->get();
+    //$str = 'to_char(dt_ano_recursos_osc, ''YYYY'')';
+    //$anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->where('to_char(dt_ano_recursos_osc, ''YYYY'')', $_ano)->get();
+    //$anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->get();
+  
+//    $anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->where('tochar(dt_ano_recursos_osc, YYYY)', $_ano)->get();
+    $anos_fonte_recursos = $this->model->where('id_osc', $_id_osc)->where($this->model->to_char('dt_ano_recursos_osc','YYYY'), $_ano)->get();
 
+/*
         foreach ($anos_fonte_recursos as $item)
         {
             $item->dt_ano_recursos_osc = substr($item->dt_ano_recursos_osc, 0, -6);
         }
-
+*/
         return $anos_fonte_recursos;
     }
 

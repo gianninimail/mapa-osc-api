@@ -13,7 +13,7 @@ interface FonteRecursosRepositoryInterface
 
     public function getFonteRecursosPorOSC($_id_osc);
 
-    public function getAnoFonteRecursosPorOSC($_id_osc);
+    public function getAnoFonteRecursosPorOSC($_id_osc, $_ano);
 
     public function store(array $data);
 
